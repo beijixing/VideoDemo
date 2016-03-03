@@ -6,9 +6,13 @@
 //  Copyright © 2016年 zgl. All rights reserved.
 //
 
-#import "AVPlayerView.h"
+#import "MyAVPlayerView.h"
 
-@implementation AVPlayerView
+@interface MyAVPlayerView ()
+//@property (nonatomic, strong)AVPlayerLayer *playerLayer;
+@end
+
+@implementation MyAVPlayerView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame])
@@ -26,7 +30,7 @@
 }
 
 - (AVPlayer *)player {
-    return [(AVPlayerLayer *)[self layer] player];
+    return [(AVPlayerLayer*)[self layer] player];
 }
 
 @end

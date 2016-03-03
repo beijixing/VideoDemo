@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyAVPlayerView.h"
 
 @interface VideoCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet MyAVPlayerView *videoView;
 @end

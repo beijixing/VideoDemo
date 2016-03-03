@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86289B031C882C85003C040D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B011C882C85003C040D /* MainViewController.m */; };
+		86289B041C882C85003C040D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86289B021C882C85003C040D /* MainViewController.xib */; };
 		F559F5C51C8725D900E30192 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5C41C8725D900E30192 /* main.m */; };
 		F559F5C81C8725D900E30192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5C71C8725D900E30192 /* AppDelegate.m */; };
 		F559F5CE1C8725D900E30192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F559F5CC1C8725D900E30192 /* Main.storyboard */; };
@@ -15,15 +17,15 @@
 		F559F5DE1C8725D900E30192 /* VideoDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5DD1C8725D900E30192 /* VideoDemoTests.m */; };
 		F559F5E91C8725D900E30192 /* VideoDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5E81C8725D900E30192 /* VideoDemoUITests.m */; };
 		F559F6231C87303500E30192 /* 2ne1.webm in Resources */ = {isa = PBXBuildFile; fileRef = F559F6181C87303500E30192 /* 2ne1.webm */; };
-		F559F6241C87303500E30192 /* 92家有 公婆上阵5-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F6191C87303500E30192 /* 92家有 公婆上阵5-Wi-Fi Low.mp4 */; };
-		F559F6251C87303500E30192 /* 92家有 回心转意6-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61A1C87303500E30192 /* 92家有 回心转意6-Wi-Fi Low.mp4 */; };
-		F559F6261C87303500E30192 /* 92家有 帅气抓麦2-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61B1C87303500E30192 /* 92家有 帅气抓麦2-Wi-Fi Low.mp4 */; };
-		F559F6271C87303500E30192 /* 92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61C1C87303500E30192 /* 92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4 */; };
-		F559F6281C87303500E30192 /* 92家有 狠心离开4-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61D1C87303500E30192 /* 92家有 狠心离开4-Wi-Fi Low.mp4 */; };
-		F559F6291C87303500E30192 /* 92家有 送花被拒3-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61E1C87303500E30192 /* 92家有 送花被拒3-Wi-Fi Low.mp4 */; };
-		F559F62A1C87303500E30192 /* bambino骨盆舞.webm in Resources */ = {isa = PBXBuildFile; fileRef = F559F61F1C87303500E30192 /* bambino骨盆舞.webm */; };
+		F559F6241C87303500E30192 /* test1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F6191C87303500E30192 /* test1.mp4 */; };
+		F559F6251C87303500E30192 /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61A1C87303500E30192 /* test2.mp4 */; };
+		F559F6261C87303500E30192 /* test3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61B1C87303500E30192 /* test3.mp4 */; };
+		F559F6271C87303500E30192 /* test4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61C1C87303500E30192 /* test4.mp4 */; };
+		F559F6281C87303500E30192 /* test5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61D1C87303500E30192 /* test5.mp4 */; };
+		F559F6291C87303500E30192 /* test6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F61E1C87303500E30192 /* test6.mp4 */; };
+		F559F62A1C87303500E30192 /* bambinoDancewebm in Resources */ = {isa = PBXBuildFile; fileRef = F559F61F1C87303500E30192 /* bambinoDancewebm */; };
 		F559F62B1C87303500E30192 /* 小浣熊玩水.webm in Resources */ = {isa = PBXBuildFile; fileRef = F559F6201C87303500E30192 /* 小浣熊玩水.webm */; };
-		F559F62C1C87303500E30192 /* 破坏 中指-Wi-Fi Low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F6211C87303500E30192 /* 破坏 中指-Wi-Fi Low.mp4 */; };
+		F559F62C1C87303500E30192 /* test7.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F559F6211C87303500E30192 /* test7.mp4 */; };
 		F559F62D1C87303500E30192 /* 草娥有多可爱.webm in Resources */ = {isa = PBXBuildFile; fileRef = F559F6221C87303500E30192 /* 草娥有多可爱.webm */; };
 		F559F6341C87304400E30192 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F62F1C87304400E30192 /* VideoCell.m */; };
 		F559F6351C87304400E30192 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F559F6301C87304400E30192 /* VideoCell.xib */; };
@@ -31,7 +33,7 @@
 		F559F6371C87304400E30192 /* VideoListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F559F6331C87304400E30192 /* VideoListVC.xib */; };
 		F559F63B1C87309D00E30192 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F6391C87309D00E30192 /* ViewController.m */; };
 		F559F63C1C87309D00E30192 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F559F63A1C87309D00E30192 /* ViewController.xib */; };
-		F559F63F1C8735A600E30192 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F63E1C8735A600E30192 /* AVPlayerView.m */; };
+		F559F63F1C8735A600E30192 /* MyAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F63E1C8735A600E30192 /* MyAVPlayerView.m */; };
 		F559F6411C8736D300E30192 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F559F6401C8736D300E30192 /* AVFoundation.framework */; };
 		F559F6431C8736DC00E30192 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F559F6421C8736DC00E30192 /* AVKit.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86289B001C882C85003C040D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		86289B011C882C85003C040D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		86289B021C882C85003C040D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F559F5C01C8725D900E30192 /* VideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F559F5C41C8725D900E30192 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F559F5C61C8725D900E30192 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,15 +74,15 @@
 		F559F5E81C8725D900E30192 /* VideoDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDemoUITests.m; sourceTree = "<group>"; };
 		F559F5EA1C8725D900E30192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F559F6181C87303500E30192 /* 2ne1.webm */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2ne1.webm; sourceTree = "<group>"; };
-		F559F6191C87303500E30192 /* 92家有 公婆上阵5-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 公婆上阵5-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61A1C87303500E30192 /* 92家有 回心转意6-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 回心转意6-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61B1C87303500E30192 /* 92家有 帅气抓麦2-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 帅气抓麦2-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61C1C87303500E30192 /* 92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61D1C87303500E30192 /* 92家有 狠心离开4-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 狠心离开4-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61E1C87303500E30192 /* 92家有 送花被拒3-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92家有 送花被拒3-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
-		F559F61F1C87303500E30192 /* bambino骨盆舞.webm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bambino骨盆舞.webm"; sourceTree = "<group>"; };
+		F559F6191C87303500E30192 /* test1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.mp4; sourceTree = "<group>"; };
+		F559F61A1C87303500E30192 /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
+		F559F61B1C87303500E30192 /* test3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.mp4; sourceTree = "<group>"; };
+		F559F61C1C87303500E30192 /* test4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test4.mp4; sourceTree = "<group>"; };
+		F559F61D1C87303500E30192 /* test5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test5.mp4; sourceTree = "<group>"; };
+		F559F61E1C87303500E30192 /* test6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test6.mp4; sourceTree = "<group>"; };
+		F559F61F1C87303500E30192 /* bambinoDancewebm */ = {isa = PBXFileReference; lastKnownFileType = file; path = bambinoDancewebm; sourceTree = "<group>"; };
 		F559F6201C87303500E30192 /* 小浣熊玩水.webm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "小浣熊玩水.webm"; sourceTree = "<group>"; };
-		F559F6211C87303500E30192 /* 破坏 中指-Wi-Fi Low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "破坏 中指-Wi-Fi Low.mp4"; sourceTree = "<group>"; };
+		F559F6211C87303500E30192 /* test7.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test7.mp4; sourceTree = "<group>"; };
 		F559F6221C87303500E30192 /* 草娥有多可爱.webm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "草娥有多可爱.webm"; sourceTree = "<group>"; };
 		F559F62E1C87304400E30192 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
 		F559F62F1C87304400E30192 /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
@@ -88,8 +93,8 @@
 		F559F6381C87309D00E30192 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F559F6391C87309D00E30192 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F559F63A1C87309D00E30192 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		F559F63D1C8735A600E30192 /* AVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerView.h; sourceTree = "<group>"; };
-		F559F63E1C8735A600E30192 /* AVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
+		F559F63D1C8735A600E30192 /* MyAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAVPlayerView.h; sourceTree = "<group>"; };
+		F559F63E1C8735A600E30192 /* MyAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAVPlayerView.m; sourceTree = "<group>"; };
 		F559F6401C8736D300E30192 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F559F6421C8736DC00E30192 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -121,6 +126,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86289B051C882C98003C040D /* 方案一AVPlayer播放 */ = {
+			isa = PBXGroup;
+			children = (
+				F559F6381C87309D00E30192 /* ViewController.h */,
+				F559F6391C87309D00E30192 /* ViewController.m */,
+				F559F63A1C87309D00E30192 /* ViewController.xib */,
+				F559F5CC1C8725D900E30192 /* Main.storyboard */,
+				F559F63D1C8735A600E30192 /* MyAVPlayerView.h */,
+				F559F63E1C8735A600E30192 /* MyAVPlayerView.m */,
+				F559F62E1C87304400E30192 /* VideoCell.h */,
+				F559F62F1C87304400E30192 /* VideoCell.m */,
+				F559F6301C87304400E30192 /* VideoCell.xib */,
+				F559F6311C87304400E30192 /* VideoListVC.h */,
+				F559F6321C87304400E30192 /* VideoListVC.m */,
+				F559F6331C87304400E30192 /* VideoListVC.xib */,
+			);
+			name = "方案一AVPlayer播放";
+			sourceTree = "<group>";
+		};
+		86289B061C882CD1003C040D /* 方案二自定义播放器 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "方案二自定义播放器";
+			sourceTree = "<group>";
+		};
 		F559F5B71C8725D900E30192 = {
 			isa = PBXGroup;
 			children = (
@@ -146,18 +177,11 @@
 			children = (
 				F559F5C61C8725D900E30192 /* AppDelegate.h */,
 				F559F5C71C8725D900E30192 /* AppDelegate.m */,
-				F559F6381C87309D00E30192 /* ViewController.h */,
-				F559F6391C87309D00E30192 /* ViewController.m */,
-				F559F63A1C87309D00E30192 /* ViewController.xib */,
-				F559F5CC1C8725D900E30192 /* Main.storyboard */,
-				F559F63D1C8735A600E30192 /* AVPlayerView.h */,
-				F559F63E1C8735A600E30192 /* AVPlayerView.m */,
-				F559F62E1C87304400E30192 /* VideoCell.h */,
-				F559F62F1C87304400E30192 /* VideoCell.m */,
-				F559F6301C87304400E30192 /* VideoCell.xib */,
-				F559F6311C87304400E30192 /* VideoListVC.h */,
-				F559F6321C87304400E30192 /* VideoListVC.m */,
-				F559F6331C87304400E30192 /* VideoListVC.xib */,
+				86289B061C882CD1003C040D /* 方案二自定义播放器 */,
+				86289B051C882C98003C040D /* 方案一AVPlayer播放 */,
+				86289B001C882C85003C040D /* MainViewController.h */,
+				86289B011C882C85003C040D /* MainViewController.m */,
+				86289B021C882C85003C040D /* MainViewController.xib */,
 				F559F6441C873BE100E30192 /* Frameworks */,
 				F559F6171C87303500E30192 /* Resources */,
 				F559F5CF1C8725D900E30192 /* Assets.xcassets */,
@@ -198,15 +222,15 @@
 			isa = PBXGroup;
 			children = (
 				F559F6181C87303500E30192 /* 2ne1.webm */,
-				F559F6191C87303500E30192 /* 92家有 公婆上阵5-Wi-Fi Low.mp4 */,
-				F559F61A1C87303500E30192 /* 92家有 回心转意6-Wi-Fi Low.mp4 */,
-				F559F61B1C87303500E30192 /* 92家有 帅气抓麦2-Wi-Fi Low.mp4 */,
-				F559F61C1C87303500E30192 /* 92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4 */,
-				F559F61D1C87303500E30192 /* 92家有 狠心离开4-Wi-Fi Low.mp4 */,
-				F559F61E1C87303500E30192 /* 92家有 送花被拒3-Wi-Fi Low.mp4 */,
-				F559F61F1C87303500E30192 /* bambino骨盆舞.webm */,
+				F559F6191C87303500E30192 /* test1.mp4 */,
+				F559F61A1C87303500E30192 /* test2.mp4 */,
+				F559F61B1C87303500E30192 /* test3.mp4 */,
+				F559F61C1C87303500E30192 /* test4.mp4 */,
+				F559F61D1C87303500E30192 /* test5.mp4 */,
+				F559F61E1C87303500E30192 /* test6.mp4 */,
+				F559F61F1C87303500E30192 /* bambinoDancewebm */,
 				F559F6201C87303500E30192 /* 小浣熊玩水.webm */,
-				F559F6211C87303500E30192 /* 破坏 中指-Wi-Fi Low.mp4 */,
+				F559F6211C87303500E30192 /* test7.mp4 */,
 				F559F6221C87303500E30192 /* 草娥有多可爱.webm */,
 			);
 			path = Resources;
@@ -329,20 +353,21 @@
 			files = (
 				F559F6351C87304400E30192 /* VideoCell.xib in Resources */,
 				F559F63C1C87309D00E30192 /* ViewController.xib in Resources */,
-				F559F6261C87303500E30192 /* 92家有 帅气抓麦2-Wi-Fi Low.mp4 in Resources */,
-				F559F6281C87303500E30192 /* 92家有 狠心离开4-Wi-Fi Low.mp4 in Resources */,
-				F559F6251C87303500E30192 /* 92家有 回心转意6-Wi-Fi Low.mp4 in Resources */,
+				F559F6261C87303500E30192 /* test3.mp4 in Resources */,
+				F559F6281C87303500E30192 /* test5.mp4 in Resources */,
+				F559F6251C87303500E30192 /* test2.mp4 in Resources */,
 				F559F6231C87303500E30192 /* 2ne1.webm in Resources */,
-				F559F6241C87303500E30192 /* 92家有 公婆上阵5-Wi-Fi Low.mp4 in Resources */,
+				F559F6241C87303500E30192 /* test1.mp4 in Resources */,
 				F559F5D31C8725D900E30192 /* LaunchScreen.storyboard in Resources */,
 				F559F5D01C8725D900E30192 /* Assets.xcassets in Resources */,
-				F559F62A1C87303500E30192 /* bambino骨盆舞.webm in Resources */,
+				F559F62A1C87303500E30192 /* bambinoDancewebm in Resources */,
 				F559F62B1C87303500E30192 /* 小浣熊玩水.webm in Resources */,
-				F559F6271C87303500E30192 /* 92家有 开嗓挽回大嫂1-Wi-Fi Low.mp4 in Resources */,
-				F559F6291C87303500E30192 /* 92家有 送花被拒3-Wi-Fi Low.mp4 in Resources */,
+				F559F6271C87303500E30192 /* test4.mp4 in Resources */,
+				F559F6291C87303500E30192 /* test6.mp4 in Resources */,
+				86289B041C882C85003C040D /* MainViewController.xib in Resources */,
 				F559F6371C87304400E30192 /* VideoListVC.xib in Resources */,
 				F559F62D1C87303500E30192 /* 草娥有多可爱.webm in Resources */,
-				F559F62C1C87303500E30192 /* 破坏 中指-Wi-Fi Low.mp4 in Resources */,
+				F559F62C1C87303500E30192 /* test7.mp4 in Resources */,
 				F559F5CE1C8725D900E30192 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +397,8 @@
 				F559F5C81C8725D900E30192 /* AppDelegate.m in Sources */,
 				F559F6341C87304400E30192 /* VideoCell.m in Sources */,
 				F559F5C51C8725D900E30192 /* main.m in Sources */,
-				F559F63F1C8735A600E30192 /* AVPlayerView.m in Sources */,
+				86289B031C882C85003C040D /* MainViewController.m in Sources */,
+				F559F63F1C8735A600E30192 /* MyAVPlayerView.m in Sources */,
 				F559F63B1C87309D00E30192 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

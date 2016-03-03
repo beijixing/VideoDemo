@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface AVPlayerView : UIView
+@interface MyAVPlayerView : UIView
 @property(nonatomic, strong) AVPlayer *player;
 @end

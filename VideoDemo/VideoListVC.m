@@ -9,13 +9,13 @@
 #import "VideoListVC.h"
 #import "VideoCell.h"
 #import "ViewController.h"
+#import "MyAVPlayerView.h"
 
 @interface VideoListVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation VideoListVC
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
@@ -32,17 +32,39 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    VideoCell *videoCell = (VideoCell *)cell;
+    NSString *fileName = [NSString stringWithFormat:@"test%ld", indexPath.row +1];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
+    AVPlayer *player = [self getPlayerWithFilePath:filePath];
+    [videoCell.videoView setPlayer:player];
+    [player play];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    VideoCell *videoCell = (VideoCell *)cell;
+    [videoCell.videoView setPlayer:nil];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 150;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell"];
     return cell;
+}
+
+- (AVPlayer *)getPlayerWithFilePath:(NSString *)filePath{
+    NSURL *videoUrl = [NSURL fileURLWithPath:filePath];
+    AVAsset *movieAsset = [AVURLAsset URLAssetWithURL:videoUrl options:nil];
+    AVPlayerItem *playerItem= [AVPlayerItem playerItemWithAsset:movieAsset];
+    AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+    return player;
 }
 
 - (void)didReceiveMemoryWarning {

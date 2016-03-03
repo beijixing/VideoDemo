@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "VideoListVC.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController: [[VideoListVC alloc] init]];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController: [[MainViewController alloc] init]];
     self.window.rootViewController = navi;
     return YES;
 }
