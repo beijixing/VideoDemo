@@ -20,7 +20,7 @@
     self.view.backgroundColor = [UIColor redColor];
     self.navigationController.navigationBar.translucent = NO;
     
-    MMoviePlayerView *moviView = [[MMoviePlayerView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    MMoviePlayerView *moviView = [[MMoviePlayerView alloc] initWithFrame:CGRectMake(100, 160, 200, 150)];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test7" ofType:@"mp4"];
     moviView.filePath = filePath;
     moviView.backgroundColor = [UIColor greenColor];

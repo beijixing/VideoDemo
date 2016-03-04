@@ -26,6 +26,17 @@
                         <action selector="customPlayerButtonClick:" destination="-1" eventType="touchUpInside" id="8mb-5h-NbE"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-nm-phZ">
+                    <rect key="frame" x="98" y="381" width="130" height="30"/>
+                    <color key="backgroundColor" red="0.06180612664" green="0.73333333329999995" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="bXC-B7-blH"/>
+                    </constraints>
+                    <state key="normal" title="录制视频"/>
+                    <connections>
+                        <action selector="transcribeVideoButtonClick:" destination="-1" eventType="touchUpInside" id="qp1-xw-HiH"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnQ-NU-pX7">
                     <rect key="frame" x="95" y="153" width="130" height="30"/>
                     <color key="backgroundColor" red="0.06180612664" green="0.73333333329999995" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,7 +53,10 @@
             <constraints>
                 <constraint firstItem="OdX-hC-EsG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="95" id="0je-mz-JL7"/>
                 <constraint firstAttribute="trailing" secondItem="OdX-hC-EsG" secondAttribute="trailing" constant="95" id="75E-al-Wju"/>
+                <constraint firstAttribute="trailing" secondItem="PnL-nm-phZ" secondAttribute="trailing" constant="92" id="Cx0-L5-sqJ"/>
+                <constraint firstItem="PnL-nm-phZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="Do4-TI-nsW"/>
                 <constraint firstItem="OdX-hC-EsG" firstAttribute="top" secondItem="HnQ-NU-pX7" secondAttribute="bottom" constant="81" id="OuF-ne-CbG"/>
+                <constraint firstItem="PnL-nm-phZ" firstAttribute="top" secondItem="OdX-hC-EsG" secondAttribute="bottom" constant="87" id="RkA-kR-wuI"/>
                 <constraint firstAttribute="trailing" secondItem="HnQ-NU-pX7" secondAttribute="trailing" constant="95" id="W5n-b2-rDw"/>
                 <constraint firstItem="HnQ-NU-pX7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="95" id="kyh-MX-HLJ"/>
                 <constraint firstItem="HnQ-NU-pX7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="153" id="tzc-Hx-AKo"/>

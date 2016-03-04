@@ -12,5 +12,5 @@
 
 - (IBAction)avplayerButtonClick:(UIButton *)sender;
 - (IBAction)customPlayerButtonClick:(UIButton *)sender;
-
+- (IBAction)transcribeVideoButtonClick:(UIButton *)sender;
 @end

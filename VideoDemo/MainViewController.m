@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "VideoListVC.h"
 #import "MMovieViewController.h"
+#import "TranscribeVideoVC.h"
 
 @interface MainViewController ()
 
@@ -44,5 +45,10 @@
 - (IBAction)customPlayerButtonClick:(UIButton *)sender {
     MMovieViewController *movieVC = [[MMovieViewController alloc] init];
     [self.navigationController pushViewController:movieVC animated:YES];
+}
+
+- (IBAction)transcribeVideoButtonClick:(UIButton *)sender {
+    TranscribeVideoVC *videoVc = [[TranscribeVideoVC alloc] init];
+    [self.navigationController pushViewController:videoVc animated:YES];
 }
 @end
