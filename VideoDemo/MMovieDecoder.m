@@ -45,7 +45,7 @@
         CMSampleBufferRef videoBuffer = [videoReaderOutput copyNextSampleBuffer];
         [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
         // 根据需要休眠一段时间；比如上层播放视频时每帧之间是有间隔的,这里的 sampleInternal 我设置为0.001秒
-        [NSThread sleepForTimeInterval:self.sampleInternal];
+//        [NSThread sleepForTimeInterval:self.sampleInternal];
     }
     // 告诉上层视频解码结束
     [self.delegate mMoveDecoderOnDecoderFinished:self];

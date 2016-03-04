@@ -20,7 +20,7 @@
     if (self =[super initWithFrame:frame]) {
         self.images = [[NSMutableArray alloc] init];
         self.movieDecoder = [[MMovieDecoder alloc] init];
-        self.movieDecoder.sampleInternal = 0.01;
+        self.movieDecoder.sampleInternal = 0.001;
         self.movieDecoder.delegate = self;
     }
     return self;
@@ -28,7 +28,10 @@
 
 - (void)mMoveDecoder:(MMovieDecoder *)movieDecoder onNewVideoFrameReady:(CMSampleBufferRef)videoBuffer {
     CGImageRef cgimage = [UIImage imageFromSampleBufferRef:videoBuffer];
-    if (!(__bridge id)(cgimage)) { return; }
+    if (!(__bridge id)(cgimage)) {
+        NSLog(@"cgimage fail");
+        return;
+    }
     [self.images addObject:((__bridge id)(cgimage))];
     CGImageRelease(cgimage);
 }
@@ -42,6 +45,8 @@
     // asset.duration.value/asset.duration.timescale 得到视频的真实时间
     animation.duration = asset.duration.value/asset.duration.timescale;
     animation.values = self.images;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
     animation.repeatCount = 1;
     animation.delegate = self;
     [self.layer addAnimation:animation forKey:nil];
@@ -53,9 +58,10 @@
     }];
 }
 
+//结束播放
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     NSLog(@"animationDidStop");
-    self.layer.contents = [self.images lastObject];
+//    self.layer.contents = [self.images lastObject];
 }
 
 - (void)setFilePath:(NSString *)filePath {
