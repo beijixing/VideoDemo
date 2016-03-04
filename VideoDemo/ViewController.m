@@ -40,7 +40,6 @@
     [self.view addSubview:self.playerView];
     [self.player play];
     
-    
 }
 
 - (void)moviePlayDidEnd:(NSNotification *)notification {

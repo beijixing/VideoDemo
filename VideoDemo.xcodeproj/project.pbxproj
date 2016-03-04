@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		86289B031C882C85003C040D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B011C882C85003C040D /* MainViewController.m */; };
 		86289B041C882C85003C040D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86289B021C882C85003C040D /* MainViewController.xib */; };
+		86289B091C891923003C040D /* MMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B081C891923003C040D /* MMovieDecoder.m */; };
+		86289B0C1C8934AC003C040D /* MMoviePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B0B1C8934AC003C040D /* MMoviePlayerView.m */; };
+		86289B121C893A10003C040D /* UIImage+ConvertToCGImageRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B111C893A10003C040D /* UIImage+ConvertToCGImageRef.m */; };
+		86289B161C893D38003C040D /* MMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86289B141C893D38003C040D /* MMovieViewController.m */; };
+		86289B171C893D38003C040D /* MMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86289B151C893D38003C040D /* MMovieViewController.xib */; };
 		F559F5C51C8725D900E30192 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5C41C8725D900E30192 /* main.m */; };
 		F559F5C81C8725D900E30192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5C71C8725D900E30192 /* AppDelegate.m */; };
 		F559F5CE1C8725D900E30192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F559F5CC1C8725D900E30192 /* Main.storyboard */; };
@@ -59,6 +64,15 @@
 		86289B001C882C85003C040D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		86289B011C882C85003C040D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		86289B021C882C85003C040D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		86289B071C891923003C040D /* MMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMovieDecoder.h; sourceTree = "<group>"; };
+		86289B081C891923003C040D /* MMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMovieDecoder.m; sourceTree = "<group>"; };
+		86289B0A1C8934AC003C040D /* MMoviePlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMoviePlayerView.h; sourceTree = "<group>"; };
+		86289B0B1C8934AC003C040D /* MMoviePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMoviePlayerView.m; sourceTree = "<group>"; };
+		86289B101C893A10003C040D /* UIImage+ConvertToCGImageRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ConvertToCGImageRef.h"; sourceTree = "<group>"; };
+		86289B111C893A10003C040D /* UIImage+ConvertToCGImageRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ConvertToCGImageRef.m"; sourceTree = "<group>"; };
+		86289B131C893D38003C040D /* MMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMovieViewController.h; sourceTree = "<group>"; };
+		86289B141C893D38003C040D /* MMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMovieViewController.m; sourceTree = "<group>"; };
+		86289B151C893D38003C040D /* MMovieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMovieViewController.xib; sourceTree = "<group>"; };
 		F559F5C01C8725D900E30192 /* VideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F559F5C41C8725D900E30192 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F559F5C61C8725D900E30192 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -148,6 +162,15 @@
 		86289B061C882CD1003C040D /* 方案二自定义播放器 */ = {
 			isa = PBXGroup;
 			children = (
+				86289B071C891923003C040D /* MMovieDecoder.h */,
+				86289B081C891923003C040D /* MMovieDecoder.m */,
+				86289B0A1C8934AC003C040D /* MMoviePlayerView.h */,
+				86289B0B1C8934AC003C040D /* MMoviePlayerView.m */,
+				86289B101C893A10003C040D /* UIImage+ConvertToCGImageRef.h */,
+				86289B111C893A10003C040D /* UIImage+ConvertToCGImageRef.m */,
+				86289B131C893D38003C040D /* MMovieViewController.h */,
+				86289B141C893D38003C040D /* MMovieViewController.m */,
+				86289B151C893D38003C040D /* MMovieViewController.xib */,
 			);
 			name = "方案二自定义播放器";
 			sourceTree = "<group>";
@@ -358,6 +381,7 @@
 				F559F6251C87303500E30192 /* test2.mp4 in Resources */,
 				F559F6231C87303500E30192 /* 2ne1.webm in Resources */,
 				F559F6241C87303500E30192 /* test1.mp4 in Resources */,
+				86289B171C893D38003C040D /* MMovieViewController.xib in Resources */,
 				F559F5D31C8725D900E30192 /* LaunchScreen.storyboard in Resources */,
 				F559F5D01C8725D900E30192 /* Assets.xcassets in Resources */,
 				F559F62A1C87303500E30192 /* bambinoDancewebm in Resources */,
@@ -393,13 +417,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86289B121C893A10003C040D /* UIImage+ConvertToCGImageRef.m in Sources */,
 				F559F6361C87304400E30192 /* VideoListVC.m in Sources */,
 				F559F5C81C8725D900E30192 /* AppDelegate.m in Sources */,
 				F559F6341C87304400E30192 /* VideoCell.m in Sources */,
 				F559F5C51C8725D900E30192 /* main.m in Sources */,
 				86289B031C882C85003C040D /* MainViewController.m in Sources */,
+				86289B0C1C8934AC003C040D /* MMoviePlayerView.m in Sources */,
+				86289B091C891923003C040D /* MMovieDecoder.m in Sources */,
 				F559F63F1C8735A600E30192 /* MyAVPlayerView.m in Sources */,
 				F559F63B1C87309D00E30192 /* ViewController.m in Sources */,
+				86289B161C893D38003C040D /* MMovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

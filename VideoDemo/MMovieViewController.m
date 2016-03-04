@@ -1,24 +1,30 @@
 //
-//  MainViewController.m
+//  MMovieViewController.m
 //  VideoDemo
 //
-//  Created by ybon on 16/3/3.
+//  Created by ybon on 16/3/4.
 //  Copyright © 2016年 zgl. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "VideoListVC.h"
 #import "MMovieViewController.h"
+#import "MMoviePlayerView.h"
 
-@interface MainViewController ()
+@interface MMovieViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation MMovieViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor redColor];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    MMoviePlayerView *moviView = [[MMoviePlayerView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test7" ofType:@"mp4"];
+    moviView.filePath = filePath;
+    moviView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:moviView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,13 +42,4 @@
 }
 */
 
-- (IBAction)avplayerButtonClick:(UIButton *)sender {
-    VideoListVC *videoListVc = [[VideoListVC alloc] init];
-    [self.navigationController pushViewController:videoListVc animated:YES];
-}
-
-- (IBAction)customPlayerButtonClick:(UIButton *)sender {
-    MMovieViewController *movieVC = [[MMovieViewController alloc] init];
-    [self.navigationController pushViewController:movieVC animated:YES];
-}
 @end
