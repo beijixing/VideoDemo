@@ -26,8 +26,8 @@
     
     // 创建一个依赖于设备的 RGB 颜色空间
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    NSLog(@"width = %ld", width);
-    NSLog(@"height = %ld", height);
+//    NSLog(@"width = %ld", width);
+//    NSLog(@"height = %ld", height);
     if (height == 0 || width == 0) {
         return NULL;
     }

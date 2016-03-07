@@ -44,6 +44,8 @@
 		F559F63F1C8735A600E30192 /* MyAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F63E1C8735A600E30192 /* MyAVPlayerView.m */; };
 		F559F6411C8736D300E30192 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F559F6401C8736D300E30192 /* AVFoundation.framework */; };
 		F559F6431C8736DC00E30192 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F559F6421C8736DC00E30192 /* AVKit.framework */; };
+		F559F6481C8D9DE400E30192 /* MMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F6461C8D9DE400E30192 /* MMovieTableViewCell.m */; };
+		F559F6491C8D9DE400E30192 /* MMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F559F6471C8D9DE400E30192 /* MMovieTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,9 @@
 		F559F63E1C8735A600E30192 /* MyAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAVPlayerView.m; sourceTree = "<group>"; };
 		F559F6401C8736D300E30192 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F559F6421C8736DC00E30192 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		F559F6451C8D9DE400E30192 /* MMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMovieTableViewCell.h; sourceTree = "<group>"; };
+		F559F6461C8D9DE400E30192 /* MMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMovieTableViewCell.m; sourceTree = "<group>"; };
+		F559F6471C8D9DE400E30192 /* MMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMovieTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,9 @@
 				86289B131C893D38003C040D /* MMovieViewController.h */,
 				86289B141C893D38003C040D /* MMovieViewController.m */,
 				86289B151C893D38003C040D /* MMovieViewController.xib */,
+				F559F6451C8D9DE400E30192 /* MMovieTableViewCell.h */,
+				F559F6461C8D9DE400E30192 /* MMovieTableViewCell.m */,
+				F559F6471C8D9DE400E30192 /* MMovieTableViewCell.xib */,
 			);
 			name = "方案二自定义播放器";
 			sourceTree = "<group>";
@@ -356,7 +364,7 @@
 				TargetAttributes = {
 					F559F5BF1C8725D900E30192 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 7P7NH6349M;
+						DevelopmentTeam = P8HMCUF5JG;
 					};
 					F559F5D81C8725D900E30192 = {
 						CreatedOnToolsVersion = 7.2;
@@ -403,6 +411,7 @@
 				F559F6231C87303500E30192 /* 2ne1.webm in Resources */,
 				F559F6241C87303500E30192 /* test1.mp4 in Resources */,
 				86289B171C893D38003C040D /* MMovieViewController.xib in Resources */,
+				F559F6491C8D9DE400E30192 /* MMovieTableViewCell.xib in Resources */,
 				F559F5D31C8725D900E30192 /* LaunchScreen.storyboard in Resources */,
 				F559F5D01C8725D900E30192 /* Assets.xcassets in Resources */,
 				F559F62A1C87303500E30192 /* bambinoDancewebm in Resources */,
@@ -442,6 +451,7 @@
 				F559F6361C87304400E30192 /* VideoListVC.m in Sources */,
 				F559F5C81C8725D900E30192 /* AppDelegate.m in Sources */,
 				86289B1B1C897E2E003C040D /* TranscribeVideoVC.m in Sources */,
+				F559F6481C8D9DE400E30192 /* MMovieTableViewCell.m in Sources */,
 				F559F6341C87304400E30192 /* VideoCell.m in Sources */,
 				F559F5C51C8725D900E30192 /* main.m in Sources */,
 				86289B031C882C85003C040D /* MainViewController.m in Sources */,
@@ -590,11 +600,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caxa.VideoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zgl.VideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -604,11 +614,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideoDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caxa.VideoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zgl.VideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

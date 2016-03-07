@@ -8,8 +8,10 @@
 
 #import "MMoviePlayerView.h"
 #import "UIImage+ConvertToCGImageRef.h"
-@interface MMoviePlayerView()
 
+static NSMutableDictionary *imagesDict = nil;
+static NSMutableDictionary *durationDict = nil;
+@interface MMoviePlayerView()
 @property(nonatomic, strong) NSMutableArray *images;
 @property(nonatomic, strong) MMovieDecoder *movieDecoder;
 
@@ -22,6 +24,13 @@
         self.movieDecoder = [[MMovieDecoder alloc] init];
         self.movieDecoder.sampleInternal = 0.001;
         self.movieDecoder.delegate = self;
+        if (!imagesDict) {
+            imagesDict = [[NSMutableDictionary alloc] init];
+        }
+        
+        if (!durationDict) {
+            durationDict = [[NSMutableDictionary alloc] init];
+        }
     }
     return self;
 }
@@ -41,21 +50,13 @@
     // 得到媒体的资源
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:self.filePath] options:nil];
     // 通过动画来播放我们的图片
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-    // asset.duration.value/asset.duration.timescale 得到视频的真实时间
-    animation.duration = asset.duration.value/asset.duration.timescale;
-    animation.values = self.images;
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
-    animation.repeatCount = 1;
-    animation.delegate = self;
-    [self.layer addAnimation:animation forKey:nil];
-    // 确保内存能及时释放掉
-    [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj) {
-            obj = nil;
-        }
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        float duration = asset.duration.value/asset.duration.timescale;
+        NSArray *arr = [NSArray arrayWithArray:self.images];
+        [imagesDict setObject:arr forKey:self.filePath];
+        [durationDict setObject:[NSNumber numberWithFloat:duration] forKey:self.filePath];
+        [self playAnimationWithImages:self.images andDuration:duration];
+    });
 }
 
 //结束播放
@@ -66,6 +67,24 @@
 
 - (void)setFilePath:(NSString *)filePath {
     _filePath = filePath;
-    [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
+    NSArray *imagesArr = [imagesDict objectForKey:_filePath];
+    if (imagesArr) {
+        float duration = [[durationDict objectForKey:_filePath] floatValue];
+        [self playAnimationWithImages:imagesArr andDuration:duration];
+    }else {
+        [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
+    }
+}
+
+- (void)playAnimationWithImages:(NSArray *)images andDuration:(float)duration {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    // asset.duration.value/asset.duration.timescale 得到视频的真实时间
+    animation.duration = duration;
+    animation.values = images;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.repeatCount = MAXFLOAT;
+    animation.delegate = self;
+    [self.layer addAnimation:animation forKey:nil];
 }
 @end
