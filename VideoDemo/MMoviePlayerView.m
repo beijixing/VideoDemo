@@ -52,8 +52,7 @@ static NSMutableDictionary *durationDict = nil;
     // 通过动画来播放我们的图片
     dispatch_async(dispatch_get_main_queue(), ^{
         float duration = asset.duration.value/asset.duration.timescale;
-        NSArray *arr = [NSArray arrayWithArray:self.images];
-        [imagesDict setObject:arr forKey:self.filePath];
+//        [imagesDict setObject:self.images forKey:self.filePath];
         [durationDict setObject:[NSNumber numberWithFloat:duration] forKey:self.filePath];
         [self playAnimationWithImages:self.images andDuration:duration];
     });
@@ -67,13 +66,8 @@ static NSMutableDictionary *durationDict = nil;
 
 - (void)setFilePath:(NSString *)filePath {
     _filePath = filePath;
-    NSArray *imagesArr = [imagesDict objectForKey:_filePath];
-    if (imagesArr) {
-        float duration = [[durationDict objectForKey:_filePath] floatValue];
-        [self playAnimationWithImages:imagesArr andDuration:duration];
-    }else {
-        [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
-    }
+    [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
+    
 }
 
 - (void)playAnimationWithImages:(NSArray *)images andDuration:(float)duration {
@@ -81,10 +75,17 @@ static NSMutableDictionary *durationDict = nil;
     // asset.duration.value/asset.duration.timescale 得到视频的真实时间
     animation.duration = duration;
     animation.values = images;
+    animation.calculationMode = kCAAnimationDiscrete;
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.repeatCount = MAXFLOAT;
     animation.delegate = self;
     [self.layer addAnimation:animation forKey:nil];
+    
+    [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj) {
+            obj = nil;
+        }
+    }];
 }
 @end
