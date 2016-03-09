@@ -9,8 +9,6 @@
 #import "MMoviePlayerView.h"
 #import "UIImage+ConvertToCGImageRef.h"
 
-static NSMutableDictionary *imagesDict = nil;
-static NSMutableDictionary *durationDict = nil;
 @interface MMoviePlayerView()
 {
     CGImageRef _lastCgImage;
@@ -22,17 +20,10 @@ static NSMutableDictionary *durationDict = nil;
 @implementation MMoviePlayerView
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self =[super initWithFrame:frame]) {
-        self.images = [[NSMutableArray alloc] init];
+//        self.images = [[NSMutableArray alloc] init];
         self.movieDecoder = [[MMovieDecoder alloc] init];
         self.movieDecoder.sampleInternal = 0.001;
         self.movieDecoder.delegate = self;
-        if (!imagesDict) {
-            imagesDict = [[NSMutableDictionary alloc] init];
-        }
-        
-        if (!durationDict) {
-            durationDict = [[NSMutableDictionary alloc] init];
-        }
     }
     return self;
 }
@@ -43,7 +34,7 @@ static NSMutableDictionary *durationDict = nil;
         NSLog(@"cgimage fail");
         return;
     }
-    [self.images addObject:((__bridge id)(cgimage))];
+//    [self.images addObject:((__bridge id)(cgimage))];
     
     typeof(self) __weak weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -53,8 +44,6 @@ static NSMutableDictionary *durationDict = nil;
         }
         _lastCgImage = cgimage;
     });
-    
-    
 }
 
 - (void)mMoveDecoderOnDecoderFinished:(MMovieDecoder *)movieDecoder {
@@ -65,6 +54,7 @@ static NSMutableDictionary *durationDict = nil;
     
     typeof(self) __weak weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
 //        weakSelf.layer.contents = nil;
         
 //        float duration = asset.duration.value/asset.duration.timescale;
@@ -112,6 +102,8 @@ static NSMutableDictionary *durationDict = nil;
             obj = nil;
         }
     }];
+    
+    self.movieDecoder = nil;
 }
 
 @end

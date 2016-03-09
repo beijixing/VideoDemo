@@ -74,4 +74,11 @@
         }
     });
 }
+
+-(void)dealloc {
+    if (oldSampleBuffer) {
+        CFRelease(oldSampleBuffer);
+        oldSampleBuffer = nil;
+    }
+}
 @end
