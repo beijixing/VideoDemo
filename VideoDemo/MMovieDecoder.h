@@ -18,7 +18,7 @@
 
 @interface MMovieDecoder : NSObject
 @property (nonatomic, assign) float sampleInternal;
-@property (nonatomic, assign) id<MMovieDecoderDelegate>delegate;
+@property (nonatomic, weak) id<MMovieDecoderDelegate>delegate;
 @property (nonatomic, copy) NSString *videoPath;
 - (void)transformViedoPathToSampBufferRef:(NSString *)videoPath;
 @end

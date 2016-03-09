@@ -41,6 +41,7 @@
     // 释放 context 和颜色空间
     CGContextRelease(context);
     CGColorSpaceRelease(colorSpace);
+
     // 用 Quzetz image 创建一个 UIImage 对象
     // UIImage *image = [UIImage imageWithCGImage:quartzImage];
     

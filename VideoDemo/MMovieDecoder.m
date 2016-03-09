@@ -7,7 +7,11 @@
 //
 
 #import "MMovieDecoder.h"
-
+@interface MMovieDecoder ()
+{
+    CMSampleBufferRef oldSampleBuffer;
+}
+@end
 @implementation MMovieDecoder
 - (void)transformViedoPathToSampBufferRef:(NSString *)videoPath {
     // 获取媒体文件路径的 URL，必须用 fileURLWithPath: 来获取文件 URL
@@ -32,7 +36,7 @@
         //     视频播放时，
         m_pixelFormatType = kCVPixelFormatType_32BGRA;
         // 其他用途，如视频压缩
-        //    m_pixelFormatType = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange;
+//        m_pixelFormatType = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange;
         
         NSMutableDictionary *options = [NSMutableDictionary dictionary];
         [options setObject:@(m_pixelFormatType) forKey:(id)kCVPixelBufferPixelFormatTypeKey];
@@ -45,16 +49,29 @@
         while ([reader status] == AVAssetReaderStatusReading && videoTrack.nominalFrameRate > 0) {
             // 读取 video sample
             CMSampleBufferRef videoBuffer = [videoReaderOutput copyNextSampleBuffer];
-            [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
+          
+            if (self.delegate && [self.delegate respondsToSelector:@selector( mMoveDecoder: onNewVideoFrameReady:)]) {
+                [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
+            }else{
+                break;
+            }
             if (videoBuffer) {
-                CFRelease(videoBuffer);
+                if (oldSampleBuffer) {
+                    CFRelease(oldSampleBuffer);
+                    oldSampleBuffer = nil;
+                }
+                oldSampleBuffer = videoBuffer;
+            }else {
+                break;
             }
             // 根据需要休眠一段时间；比如上层播放视频时每帧之间是有间隔的,这里的 sampleInternal 我设置为0.001
+            [NSThread sleepForTimeInterval:CMTimeGetSeconds(videoTrack.minFrameDuration)];
         }
         // 告诉上层视频解码结束
         
-        [self.delegate mMoveDecoderOnDecoderFinished:self];
-    
+        if (self.delegate && [self.delegate respondsToSelector:@selector(mMoveDecoderOnDecoderFinished:)]) {
+            [self.delegate mMoveDecoderOnDecoderFinished:self];
+        }
     });
 }
 @end

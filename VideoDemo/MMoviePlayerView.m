@@ -12,9 +12,11 @@
 static NSMutableDictionary *imagesDict = nil;
 static NSMutableDictionary *durationDict = nil;
 @interface MMoviePlayerView()
+{
+    CGImageRef _lastCgImage;
+}
 @property(nonatomic, strong) NSMutableArray *images;
 @property(nonatomic, strong) MMovieDecoder *movieDecoder;
-
 @end
 
 @implementation MMoviePlayerView
@@ -42,7 +44,17 @@ static NSMutableDictionary *durationDict = nil;
         return;
     }
     [self.images addObject:((__bridge id)(cgimage))];
-    CGImageRelease(cgimage);
+    
+    typeof(self) __weak weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.layer.contents = (__bridge id)cgimage;
+        if (_lastCgImage) {
+            CGImageRelease(_lastCgImage);
+        }
+        _lastCgImage = cgimage;
+    });
+    
+    
 }
 
 - (void)mMoveDecoderOnDecoderFinished:(MMovieDecoder *)movieDecoder {
@@ -50,11 +62,20 @@ static NSMutableDictionary *durationDict = nil;
     // 得到媒体的资源
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:self.filePath] options:nil];
     // 通过动画来播放我们的图片
+    
+    typeof(self) __weak weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        float duration = asset.duration.value/asset.duration.timescale;
+//        weakSelf.layer.contents = nil;
+        
+//        float duration = asset.duration.value/asset.duration.timescale;
 //        [imagesDict setObject:self.images forKey:self.filePath];
-        [durationDict setObject:[NSNumber numberWithFloat:duration] forKey:self.filePath];
-        [self playAnimationWithImages:self.images andDuration:duration];
+//        [durationDict setObject:[NSNumber numberWithFloat:duration] forKey:self.filePath];
+//        [self playAnimationWithImages:self.images andDuration:duration];
+//        [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            if (obj) {
+//                obj = nil;
+//            }
+//        }];
     });
 }
 
@@ -76,16 +97,21 @@ static NSMutableDictionary *durationDict = nil;
     animation.duration = duration;
     animation.values = images;
     animation.calculationMode = kCAAnimationDiscrete;
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
+//    animation.removedOnCompletion = NO;
+//    animation.fillMode = kCAFillModeForwards;
     animation.repeatCount = MAXFLOAT;
     animation.delegate = self;
     [self.layer addAnimation:animation forKey:nil];
-    
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc11111");
     [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj) {
+            NSLog(@"dealloc");
             obj = nil;
         }
     }];
 }
+
 @end

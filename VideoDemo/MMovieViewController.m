@@ -11,7 +11,9 @@
 #import "MMovieTableViewCell.h"
 
 @interface MMovieViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+{
+    CGRect videoFrame;
+}
 @end
 
 @implementation MMovieViewController
@@ -28,6 +30,9 @@
 //    [self.view addSubview:moviView];
     
     [self.movieTable registerNib:[UINib nibWithNibName:@"MMovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    
+    MMovieTableViewCell* videoCell = [self.movieTable dequeueReusableCellWithIdentifier:@"cell"];
+    videoFrame = videoCell.playerView.frame;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -36,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 14;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,22 +51,31 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     MMovieTableViewCell *moviCell = (MMovieTableViewCell *)cell;
     
-    CGRect frame = moviCell.playerView.bounds;
-    MMoviePlayerView *moviView = [[MMoviePlayerView alloc] initWithFrame:frame];
-    
+    MMoviePlayerView *moviView = [[MMoviePlayerView alloc] initWithFrame:videoFrame];
     NSString *fileName;
     if (indexPath.row <6) {
        fileName = [NSString stringWithFormat:@"test%ld", indexPath.row +1];
     }else if (indexPath.row <12){
-        fileName = [NSString stringWithFormat:@"test%ld", indexPath.row - 6];
+        fileName = [NSString stringWithFormat:@"test%ld", indexPath.row - 5];
     }else {
-         fileName = [NSString stringWithFormat:@"test%ld", indexPath.row - 12];
+         fileName = [NSString stringWithFormat:@"test%ld", indexPath.row - 11];
     }
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp4"];
     moviView.filePath = filePath;
-    
+    NSArray *subViews = moviCell.subviews;
+    for (UIView *view in subViews) {
+        [view removeFromSuperview];
+    }
     [moviCell addSubview:moviView];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMovieTableViewCell *moviCell = (MMovieTableViewCell *)cell;
+    NSArray *subViews = moviCell.subviews;
+    for (UIView *view in subViews) {
+        [view removeFromSuperview];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
