@@ -32,29 +32,38 @@
     CGImageRef cgimage = [UIImage imageFromSampleBufferRef:videoBuffer];
     if (!(__bridge id)(cgimage)) {
         NSLog(@"cgimage fail");
+        if (_lastCgImage) {
+            CGImageRelease(_lastCgImage);
+            _lastCgImage = nil;
+        }
         return;
     }
 //    [self.images addObject:((__bridge id)(cgimage))];
     
     typeof(self) __weak weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.layer.contents = (__bridge id)cgimage;
-        if (_lastCgImage) {
-            CGImageRelease(_lastCgImage);
+        if (weakSelf) {
+            weakSelf.layer.contents = (__bridge id)cgimage;
         }
-        _lastCgImage = cgimage;
     });
+    if (_lastCgImage) {
+        CGImageRelease(_lastCgImage);
+        _lastCgImage = nil;
+    }
+    _lastCgImage = cgimage;
 }
 
 - (void)mMoveDecoderOnDecoderFinished:(MMovieDecoder *)movieDecoder {
     NSLog(@"视频解档完成");
     // 得到媒体的资源
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:self.filePath] options:nil];
+//    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:self.filePath] options:nil];
     // 通过动画来播放我们的图片
     
     typeof(self) __weak weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
+        if (weakSelf) {
+            [weakSelf.movieDecoder transformViedoPathToSampBufferRef:self.filePath];
+        }
 //        weakSelf.layer.contents = nil;
         
 //        float duration = asset.duration.value/asset.duration.timescale;
@@ -81,28 +90,25 @@
     
 }
 
-- (void)playAnimationWithImages:(NSArray *)images andDuration:(float)duration {
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-    // asset.duration.value/asset.duration.timescale 得到视频的真实时间
-    animation.duration = duration;
-    animation.values = images;
-    animation.calculationMode = kCAAnimationDiscrete;
-//    animation.removedOnCompletion = NO;
-//    animation.fillMode = kCAFillModeForwards;
-    animation.repeatCount = MAXFLOAT;
-    animation.delegate = self;
-    [self.layer addAnimation:animation forKey:nil];
-}
+//- (void)playAnimationWithImages:(NSArray *)images andDuration:(float)duration {
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+//    // asset.duration.value/asset.duration.timescale 得到视频的真实时间
+//    animation.duration = duration;
+//    animation.values = images;
+//    animation.calculationMode = kCAAnimationDiscrete;
+////    animation.removedOnCompletion = NO;
+////    animation.fillMode = kCAFillModeForwards;
+//    animation.repeatCount = MAXFLOAT;
+//    animation.delegate = self;
+//    [self.layer addAnimation:animation forKey:nil];
+//}
 
 - (void)dealloc {
     NSLog(@"dealloc11111");
-    [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj) {
-            NSLog(@"dealloc");
-            obj = nil;
-        }
-    }];
-    
+    if (_lastCgImage) {
+        CGImageRelease(_lastCgImage);
+    }
+    self.layer.contents = nil;
     self.movieDecoder = nil;
 }
 

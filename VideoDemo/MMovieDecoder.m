@@ -49,12 +49,20 @@
         while ([reader status] == AVAssetReaderStatusReading && videoTrack.nominalFrameRate > 0) {
             // 读取 video sample
             CMSampleBufferRef videoBuffer = [videoReaderOutput copyNextSampleBuffer];
-          
-            if (self.delegate && [self.delegate respondsToSelector:@selector( mMoveDecoder: onNewVideoFrameReady:)]) {
+            NSLog(@"videoBuffer");
+            
+
+            
+            if (videoBuffer && self.delegate && [self.delegate respondsToSelector:@selector( mMoveDecoder: onNewVideoFrameReady:)]) {
                 [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
             }else{
+                if (oldSampleBuffer) {
+                    CFRelease(oldSampleBuffer);
+                    oldSampleBuffer = nil;
+                }
                 break;
             }
+            
             if (videoBuffer) {
                 if (oldSampleBuffer) {
                     CFRelease(oldSampleBuffer);
@@ -68,7 +76,7 @@
             [NSThread sleepForTimeInterval:CMTimeGetSeconds(videoTrack.minFrameDuration)];
         }
         // 告诉上层视频解码结束
-        
+//        
         if (self.delegate && [self.delegate respondsToSelector:@selector(mMoveDecoderOnDecoderFinished:)]) {
             [self.delegate mMoveDecoderOnDecoderFinished:self];
         }
