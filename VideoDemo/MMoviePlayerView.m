@@ -45,12 +45,13 @@
         if (weakSelf) {
             weakSelf.layer.contents = (__bridge id)cgimage;
         }
+        if (_lastCgImage) {
+            CGImageRelease(_lastCgImage);
+            _lastCgImage = nil;
+        }
+        _lastCgImage = cgimage;
     });
-    if (_lastCgImage) {
-        CGImageRelease(_lastCgImage);
-        _lastCgImage = nil;
-    }
-    _lastCgImage = cgimage;
+    
 }
 
 - (void)mMoveDecoderOnDecoderFinished:(MMovieDecoder *)movieDecoder {
@@ -111,5 +112,7 @@
     self.layer.contents = nil;
     self.movieDecoder = nil;
 }
+
+
 
 @end

@@ -20,5 +20,6 @@
 @property (nonatomic, assign) float sampleInternal;
 @property (nonatomic, weak) id<MMovieDecoderDelegate>delegate;
 @property (nonatomic, copy) NSString *videoPath;
+@property (nonatomic, assign)dispatch_queue_t globalQueue;
 - (void)transformViedoPathToSampBufferRef:(NSString *)videoPath;
 @end

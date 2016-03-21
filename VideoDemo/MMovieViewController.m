@@ -33,6 +33,12 @@
     
     MMovieTableViewCell* videoCell = [self.movieTable dequeueReusableCellWithIdentifier:@"cell"];
     videoFrame = videoCell.playerView.frame;
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMovieReplayNotifi:) name:@"replayMovie" object:nil];
+}
+
+- (void)receiveMovieReplayNotifi:(NSNotification *)notifi {
+    [self.movieTable reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

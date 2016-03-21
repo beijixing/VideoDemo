@@ -7,17 +7,27 @@
 //
 
 #import "MMovieDecoder.h"
+#import "Canceller.h"
 @interface MMovieDecoder ()
 {
     CMSampleBufferRef oldSampleBuffer;
 }
 @end
+
+
+
 @implementation MMovieDecoder
+- (instancetype)init {
+    if (self = [super init]) {
+        self.globalQueue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    }
+    return self;
+}
+
 - (void)transformViedoPathToSampBufferRef:(NSString *)videoPath {
     // 获取媒体文件路径的 URL，必须用 fileURLWithPath: 来获取文件 URL
     NSLog(@"videoPath = %@", videoPath);
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(self.globalQueue, ^{
         NSURL *fileUrl = [NSURL fileURLWithPath:videoPath];
         AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileUrl options:nil];
         NSError *error = nil;
@@ -50,11 +60,8 @@
             // 读取 video sample
             CMSampleBufferRef videoBuffer = [videoReaderOutput copyNextSampleBuffer];
             NSLog(@"videoBuffer");
-            
-
-            
             if (videoBuffer && self.delegate && [self.delegate respondsToSelector:@selector( mMoveDecoder: onNewVideoFrameReady:)]) {
-                [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
+                     [self.delegate mMoveDecoder:self onNewVideoFrameReady:videoBuffer];
             }else{
                 if (oldSampleBuffer) {
                     CFRelease(oldSampleBuffer);
@@ -76,9 +83,9 @@
             [NSThread sleepForTimeInterval:CMTimeGetSeconds(videoTrack.minFrameDuration)];
         }
         // 告诉上层视频解码结束
-//        
+//
         if (self.delegate && [self.delegate respondsToSelector:@selector(mMoveDecoderOnDecoderFinished:)]) {
-            [self.delegate mMoveDecoderOnDecoderFinished:self];
+                [self.delegate mMoveDecoderOnDecoderFinished:self];
         }
     });
 }
